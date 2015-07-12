@@ -8,18 +8,96 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+//    static let ratio:CGFloat = 1.6180339887498948482
+//    static let inverseRatio:CGFloat = ratio - 1
+
+    lazy var applicationFrame = UIScreen.mainScreen().applicationFrame
+
+    // model
+    var count = 0
+
+    // view
+    var label:UILabel!
+    var labelHorizontalPlacement:NSLayoutConstraint!
+    var labelVerticalPlacement:NSLayoutConstraint!
+
+    var incrementButton:UIButton!
+    var incrementButtonHorizontalPlacement:NSLayoutConstraint!
+    var incrementButtonVerticalPlacement:NSLayoutConstraint!
+
+    var decrementButton:UIButton!
+    var decrementButtonHorizontalPlacement:NSLayoutConstraint!
+    var decrementButtonVerticalPlacement:NSLayoutConstraint!
+
+    override func loadView() {
+        // According to the Apple Docs: "If you prefer to create views programmatically, instead of using a storyboard, you do so by overriding your view controller’s loadView method."
+        // https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW36
+
+        view = UIView( frame: applicationFrame )
+        view.backgroundColor = UIColor.whiteColor()
+        view.setTranslatesAutoresizingMaskIntoConstraints( false )
+
+        // label
+        label = UILabel()
+        label.setTranslatesAutoresizingMaskIntoConstraints( false )
+        label.text = "0"
+        label.font = UIFont.boldSystemFontOfSize( 96 )
+        labelHorizontalPlacement = NSLayoutConstraint( item: label, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0 )
+        labelVerticalPlacement = NSLayoutConstraint( item: label, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0 )
+
+        // increment button
+        incrementButton = UIButton()
+        incrementButton.setTranslatesAutoresizingMaskIntoConstraints( false )
+        incrementButton.setTitle( "+", forState: .Normal )
+        incrementButton.titleLabel?.font = UIFont.boldSystemFontOfSize( 48 )
+        incrementButton.setTitleColor( UIColor.blueColor(), forState: .Normal )
+        incrementButton.addTarget( self, action: "incrementCount", forControlEvents: .TouchUpInside )
+        incrementButtonHorizontalPlacement = NSLayoutConstraint( item:incrementButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1.0, constant: -20 )
+        incrementButtonVerticalPlacement = NSLayoutConstraint( item:incrementButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -20 )
+
+        // decrement button
+        decrementButton = UIButton()
+        decrementButton.setTranslatesAutoresizingMaskIntoConstraints( false )
+        decrementButton.setTitle( "-", forState: .Normal )
+        decrementButton.titleLabel?.font = UIFont.boldSystemFontOfSize( 48 )
+        decrementButton.setTitleColor( UIColor.blueColor(), forState: .Normal )
+        decrementButton.addTarget( self, action: "decrementCount", forControlEvents: .TouchUpInside )
+        decrementButtonHorizontalPlacement = NSLayoutConstraint( item:decrementButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .Leading, multiplier: 1.0, constant: 20 )
+        decrementButtonVerticalPlacement = NSLayoutConstraint( item:decrementButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -20 )
+
+        // assembly
+        view.addSubview( label )
+        view.addConstraint( labelHorizontalPlacement )
+        view.addConstraint( labelVerticalPlacement )
+
+        view.addSubview( incrementButton )
+        view.addConstraint( incrementButtonHorizontalPlacement )
+        view.addConstraint( incrementButtonVerticalPlacement )
+
+        view.addSubview( decrementButton )
+        view.addConstraint( decrementButtonHorizontalPlacement )
+        view.addConstraint( decrementButtonVerticalPlacement )
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillLayoutSubviews()
+    {
+        incrementButtonHorizontalPlacement.constant = -view.frame.size.width / 3
+        decrementButtonHorizontalPlacement.constant = view.frame.size.width / 3
+
+        super.viewWillLayoutSubviews()
     }
 
+    func incrementCount()
+    {
+        label.text = "\(++count)"
+    }
+
+    func decrementCount()
+    {
+        label.text = "\(--count)"
+    }
 
 }
-
