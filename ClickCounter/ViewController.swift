@@ -32,7 +32,8 @@ class ViewController: UIViewController
     var decrementButtonHorizontalPlacement:NSLayoutConstraint!
     var decrementButtonVerticalPlacement:NSLayoutConstraint!
 
-    override func loadView() {
+    override func loadView()
+    {
         // According to the Apple Docs: "If you prefer to create views programmatically, instead of using a storyboard, you do so by overriding your view controller’s loadView method."
         // https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW36
 
@@ -82,8 +83,21 @@ class ViewController: UIViewController
         view.addConstraint( decrementButtonVerticalPlacement )
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let swipeLeftRecogniser = UISwipeGestureRecognizer( target: self, action: "incrementCount" )
+        swipeLeftRecogniser.direction = UISwipeGestureRecognizerDirection.Left
+        view.addGestureRecognizer( swipeLeftRecogniser )
+
+        let swipeRightRecogniser = UISwipeGestureRecognizer( target: self, action: "decrementCount" )
+        swipeRightRecogniser.direction = UISwipeGestureRecognizerDirection.Right
+        view.addGestureRecognizer( swipeRightRecogniser )
+    }
+
     override func viewWillLayoutSubviews()
     {
+        // view dimensions changed, update the constraints accordingly
         incrementButtonHorizontalPlacement.constant = -view.frame.size.width / 3
         decrementButtonHorizontalPlacement.constant = view.frame.size.width / 3
 
