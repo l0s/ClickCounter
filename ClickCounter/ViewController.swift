@@ -22,9 +22,8 @@ class ViewController: UIViewController
     // view
     @IBOutlet var label:UILabel!
 
-    var incrementButton:UIButton!
-    var incrementButtonHorizontalPlacement:NSLayoutConstraint!
-    var incrementButtonVerticalPlacement:NSLayoutConstraint!
+    @IBOutlet var incrementButton:UIButton!
+    @IBOutlet var incrementButtonHorizontalPlacement:NSLayoutConstraint!
 
     @IBOutlet var decrementButton:UIButton!
     @IBOutlet var decrementButtonHorizontalPlacement:NSLayoutConstraint!
@@ -36,21 +35,6 @@ class ViewController: UIViewController
         // https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW36
 
         view.setTranslatesAutoresizingMaskIntoConstraints( false )
-
-        // increment button
-        incrementButton = UIButton()
-        incrementButton.setTranslatesAutoresizingMaskIntoConstraints( false )
-        incrementButton.setTitle( "+", forState: .Normal )
-        incrementButton.titleLabel?.font = UIFont.boldSystemFontOfSize( 48 )
-        incrementButton.setTitleColor( UIColor.blueColor(), forState: .Normal )
-        incrementButton.addTarget( self, action: "incrementCount", forControlEvents: .TouchUpInside )
-        incrementButtonHorizontalPlacement = NSLayoutConstraint( item:incrementButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1.0, constant: -20 )
-        incrementButtonVerticalPlacement = NSLayoutConstraint( item:incrementButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -20 )
-
-        // assembly
-        view.addSubview( incrementButton )
-        view.addConstraint( incrementButtonHorizontalPlacement )
-        view.addConstraint( incrementButtonVerticalPlacement )
     }
 
     override func viewDidLoad() {
@@ -68,13 +52,13 @@ class ViewController: UIViewController
     override func viewWillLayoutSubviews()
     {
         // view dimensions changed, update the constraints accordingly
-        incrementButtonHorizontalPlacement.constant = -view.frame.size.width / 3
         decrementButtonHorizontalPlacement.constant = view.frame.size.width / 3
+        incrementButtonHorizontalPlacement.constant = view.frame.size.width * 2 / 3
 
         super.viewWillLayoutSubviews()
     }
 
-    func incrementCount()
+    @IBAction func incrementCount()
     {
         label.text = "\(++count)"
     }
