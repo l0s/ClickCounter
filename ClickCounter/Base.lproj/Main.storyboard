@@ -50,6 +50,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="X7O-Ve-J4h" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="left" constant="400" id="0to-oV-Gai"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5AQ-kj-wKi" secondAttribute="bottom" constant="20" id="Bdy-is-UJR"/>
@@ -59,6 +60,10 @@
                             <constraint firstAttribute="centerX" secondItem="BFv-25-zLQ" secondAttribute="centerX" id="aYr-4C-b8B"/>
                             <constraint firstAttribute="centerY" secondItem="BFv-25-zLQ" secondAttribute="centerY" id="cbb-WG-SRz"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="SdQ-3M-oRr" appends="YES" id="Ugx-GP-KOu"/>
+                            <outletCollection property="gestureRecognizers" destination="WWX-dm-PbP" appends="YES" id="WdW-8B-0Wx"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="decrementButton" destination="5AQ-kj-wKi" id="X1t-DV-sQa"/>
@@ -69,6 +74,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="SdQ-3M-oRr" userLabel="Swipe Right">
+                    <connections>
+                        <action selector="decrementCount" destination="vXZ-lx-hvc" id="GRj-zZ-RUY"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="WWX-dm-PbP" userLabel="Swipe Left">
+                    <connections>
+                        <action selector="incrementCount" destination="vXZ-lx-hvc" id="wfP-Og-oL7"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>

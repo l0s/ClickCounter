@@ -23,18 +23,6 @@ class ViewController: UIViewController
     @IBOutlet var decrementButton:UIButton!
     @IBOutlet var decrementButtonHorizontalPlacement:NSLayoutConstraint!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let swipeLeftRecogniser = UISwipeGestureRecognizer( target: self, action: "incrementCount" )
-        swipeLeftRecogniser.direction = UISwipeGestureRecognizerDirection.Left
-        view.addGestureRecognizer( swipeLeftRecogniser )
-
-        let swipeRightRecogniser = UISwipeGestureRecognizer( target: self, action: "decrementCount" )
-        swipeRightRecogniser.direction = UISwipeGestureRecognizerDirection.Right
-        view.addGestureRecognizer( swipeRightRecogniser )
-    }
-
     override func viewWillLayoutSubviews()
     {
         // view dimensions changed, update the constraints accordingly
