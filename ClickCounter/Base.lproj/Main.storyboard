@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFv-25-zLQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFv-25-zLQ" userLabel="Count Label">
                                 <rect key="frame" x="0.0" y="243" width="600" height="115"/>
                                 <accessibility key="accessibilityConfiguration" label="count"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="96"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AQ-kj-wKi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AQ-kj-wKi" userLabel="Decrement Button">
                                 <rect key="frame" x="5" y="510" width="30" height="70"/>
                                 <accessibility key="accessibilityConfiguration" label="decrement"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
@@ -36,7 +36,7 @@
                                     <action selector="decrementCount" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Axd-rd-OFN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7O-Ve-J4h">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7O-Ve-J4h" userLabel="Increment Button">
                                 <rect key="frame" x="385" y="510" width="30" height="70"/>
                                 <accessibility key="accessibilityConfiguration" label="increment"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
