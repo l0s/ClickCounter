@@ -17,21 +17,37 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFv-25-zLQ">
-                                <rect key="frame" x="0.5" y="243" width="600" height="115"/>
+                                <rect key="frame" x="0.0" y="243" width="600" height="115"/>
                                 <accessibility key="accessibilityConfiguration" label="count"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="96"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AQ-kj-wKi">
+                                <rect key="frame" x="20" y="510" width="30" height="70"/>
+                                <accessibility key="accessibilityConfiguration" label="decrement"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="decrementCount" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Axd-rd-OFN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5AQ-kj-wKi" secondAttribute="bottom" constant="20" id="Bdy-is-UJR"/>
                             <constraint firstAttribute="width" secondItem="BFv-25-zLQ" secondAttribute="width" id="Lkj-It-LNf"/>
+                            <constraint firstItem="5AQ-kj-wKi" firstAttribute="left" secondItem="kh9-bI-dsS" secondAttribute="left" constant="20" id="QHa-rS-LUW"/>
                             <constraint firstAttribute="centerX" secondItem="BFv-25-zLQ" secondAttribute="centerX" id="aYr-4C-b8B"/>
                             <constraint firstAttribute="centerY" secondItem="BFv-25-zLQ" secondAttribute="centerY" id="cbb-WG-SRz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="decrementButton" destination="5AQ-kj-wKi" id="X1t-DV-sQa"/>
+                        <outlet property="decrementButtonHorizontalPlacement" destination="QHa-rS-LUW" id="Use-Cw-fmm"/>
                         <outlet property="label" destination="BFv-25-zLQ" id="IgK-1v-OTE"/>
                     </connections>
                 </viewController>

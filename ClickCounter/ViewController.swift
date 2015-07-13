@@ -26,9 +26,8 @@ class ViewController: UIViewController
     var incrementButtonHorizontalPlacement:NSLayoutConstraint!
     var incrementButtonVerticalPlacement:NSLayoutConstraint!
 
-    var decrementButton:UIButton!
-    var decrementButtonHorizontalPlacement:NSLayoutConstraint!
-    var decrementButtonVerticalPlacement:NSLayoutConstraint!
+    @IBOutlet var decrementButton:UIButton!
+    @IBOutlet var decrementButtonHorizontalPlacement:NSLayoutConstraint!
 
     override func loadView()
     {
@@ -48,25 +47,10 @@ class ViewController: UIViewController
         incrementButtonHorizontalPlacement = NSLayoutConstraint( item:incrementButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1.0, constant: -20 )
         incrementButtonVerticalPlacement = NSLayoutConstraint( item:incrementButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -20 )
 
-        // decrement button
-        decrementButton = UIButton()
-        decrementButton.setTranslatesAutoresizingMaskIntoConstraints( false )
-        decrementButton.setTitle( "-", forState: .Normal )
-        decrementButton.titleLabel?.font = UIFont.boldSystemFontOfSize( 48 )
-        decrementButton.setTitleColor( UIColor.blueColor(), forState: .Normal )
-        decrementButton.addTarget( self, action: "decrementCount", forControlEvents: .TouchUpInside )
-        decrementButtonHorizontalPlacement = NSLayoutConstraint( item:decrementButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .Leading, multiplier: 1.0, constant: 20 )
-        decrementButtonVerticalPlacement = NSLayoutConstraint( item:decrementButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -20 )
-
         // assembly
-
         view.addSubview( incrementButton )
         view.addConstraint( incrementButtonHorizontalPlacement )
         view.addConstraint( incrementButtonVerticalPlacement )
-
-        view.addSubview( decrementButton )
-        view.addConstraint( decrementButtonHorizontalPlacement )
-        view.addConstraint( decrementButtonVerticalPlacement )
     }
 
     override func viewDidLoad() {
@@ -95,7 +79,7 @@ class ViewController: UIViewController
         label.text = "\(++count)"
     }
 
-    func decrementCount()
+    @IBAction func decrementCount()
     {
         label.text = "\(--count)"
     }
