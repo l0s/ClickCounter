@@ -20,9 +20,7 @@ class ViewController: UIViewController
     var count = 0
 
     // view
-    var label:UILabel!
-    var labelHorizontalPlacement:NSLayoutConstraint!
-    var labelVerticalPlacement:NSLayoutConstraint!
+    @IBOutlet var label:UILabel!
 
     var incrementButton:UIButton!
     var incrementButtonHorizontalPlacement:NSLayoutConstraint!
@@ -34,20 +32,11 @@ class ViewController: UIViewController
 
     override func loadView()
     {
+        super.loadView()
         // According to the Apple Docs: "If you prefer to create views programmatically, instead of using a storyboard, you do so by overriding your view controller’s loadView method."
         // https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW36
 
-        view = UIView( frame: applicationFrame )
-        view.backgroundColor = UIColor.whiteColor()
         view.setTranslatesAutoresizingMaskIntoConstraints( false )
-
-        // label
-        label = UILabel()
-        label.setTranslatesAutoresizingMaskIntoConstraints( false )
-        label.text = "0"
-        label.font = UIFont.boldSystemFontOfSize( 96 )
-        labelHorizontalPlacement = NSLayoutConstraint( item: label, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0 )
-        labelVerticalPlacement = NSLayoutConstraint( item: label, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0 )
 
         // increment button
         incrementButton = UIButton()
@@ -70,9 +59,6 @@ class ViewController: UIViewController
         decrementButtonVerticalPlacement = NSLayoutConstraint( item:decrementButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -20 )
 
         // assembly
-        view.addSubview( label )
-        view.addConstraint( labelHorizontalPlacement )
-        view.addConstraint( labelVerticalPlacement )
 
         view.addSubview( incrementButton )
         view.addConstraint( incrementButtonHorizontalPlacement )
