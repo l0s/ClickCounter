@@ -11,11 +11,6 @@ import UIKit
 class ViewController: UIViewController
 {
 
-//    static let ratio:CGFloat = 1.6180339887498948482
-//    static let inverseRatio:CGFloat = ratio - 1
-
-    lazy var applicationFrame = UIScreen.mainScreen().applicationFrame
-
     // model
     var count = 0
 
@@ -27,15 +22,6 @@ class ViewController: UIViewController
 
     @IBOutlet var decrementButton:UIButton!
     @IBOutlet var decrementButtonHorizontalPlacement:NSLayoutConstraint!
-
-    override func loadView()
-    {
-        super.loadView()
-        // According to the Apple Docs: "If you prefer to create views programmatically, instead of using a storyboard, you do so by overriding your view controller’s loadView method."
-        // https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW36
-
-        view.setTranslatesAutoresizingMaskIntoConstraints( false )
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
