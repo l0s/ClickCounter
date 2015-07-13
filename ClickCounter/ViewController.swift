@@ -17,10 +17,7 @@ class ViewController: UIViewController
     // view
     @IBOutlet var label:UILabel!
 
-    @IBOutlet var incrementButton:UIButton!
     @IBOutlet var incrementButtonHorizontalPlacement:NSLayoutConstraint!
-
-    @IBOutlet var decrementButton:UIButton!
     @IBOutlet var decrementButtonHorizontalPlacement:NSLayoutConstraint!
 
     override func viewWillLayoutSubviews()

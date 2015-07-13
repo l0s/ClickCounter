@@ -66,9 +66,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="decrementButton" destination="5AQ-kj-wKi" id="X1t-DV-sQa"/>
                         <outlet property="decrementButtonHorizontalPlacement" destination="QHa-rS-LUW" id="Use-Cw-fmm"/>
-                        <outlet property="incrementButton" destination="X7O-Ve-J4h" id="pYd-Ns-upL"/>
                         <outlet property="incrementButtonHorizontalPlacement" destination="0to-oV-Gai" id="acl-cX-mkY"/>
                         <outlet property="label" destination="BFv-25-zLQ" id="IgK-1v-OTE"/>
                     </connections>
