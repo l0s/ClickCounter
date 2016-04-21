@@ -156,6 +156,7 @@
 		07C133991B51C8BF00F89A04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Carlos Macasaet";
 				TargetAttributes = {
@@ -411,6 +412,7 @@
 				07C133C21B51C8C000F89A04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07C133C31B51C8C000F89A04 /* Build configuration list for PBXNativeTarget "ClickCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +421,7 @@
 				07C133C51B51C8C000F89A04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
