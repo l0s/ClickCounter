@@ -31,12 +31,14 @@ class ViewController: UIViewController
 
     @IBAction func incrementCount()
     {
-        label.text = "\(++count)"
+        count = count + 1
+        label.text = "\(count)"
     }
 
     @IBAction func decrementCount()
     {
-        label.text = "\(--count)"
+        count = count - 1
+        label.text = "\(count)"
     }
 
 }
